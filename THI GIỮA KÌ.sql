@@ -97,9 +97,19 @@ ORDER BY DOB ASC
 LIMIT 2;
 
 
-SELECT MatchId, COUNT(*) AS PerformanceCount
+SELECT MatchId, SUM(Goals) AS TotalGoals
 FROM MatchPerformance
 GROUP BY MatchId;
+
+SELECT Position, COUNT(*) AS NumberOfPlayer
+FROM Players
+GROUP BY Position;
+
+SELECT PlayerId, COUNT(MatchId) AS TotalMatches
+FROM MatchPerformance
+GROUP BY PlayerId
+HAVING COUNT(MatchId) >= 2;
+
 
 
 

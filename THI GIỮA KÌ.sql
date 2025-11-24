@@ -82,7 +82,7 @@ WHERE Stadium = 'My Dinh';
 
 SELECT PlayerId, MatchId, Goals
 FROM MatchPerformance
-HAVING Goals >= 1;
+WHERE Goals >= 1;
 
 SELECT FullName 
 FROM players
@@ -97,7 +97,9 @@ ORDER BY DOB ASC
 LIMIT 2;
 
 
-SELECT count Goals, MatchId from MatchPerformance;
+SELECT MatchId, COUNT(*) AS PerformanceCount
+FROM MatchPerformance
+GROUP BY MatchId;
 
 
 
